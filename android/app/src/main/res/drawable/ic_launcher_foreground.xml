@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Simple house/roof mark, matches the web header icon. Placeholder branding. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group android:scaleX="0.5" android:scaleY="0.5" android:pivotX="54" android:pivotY="54">
+        <path
+            android:pathData="M54 24 L18 54 L26 54 L26 84 L82 84 L82 54 L90 54 Z"
+            android:fillColor="#FFFFFF" />
+        <path
+            android:pathData="M54 16 L10 52 L18 58 L54 28 L90 58 L98 52 Z"
+            android:fillColor="#C2410C" />
+    </group>
+</vector>

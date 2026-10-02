@@ -1,0 +1,171 @@
+/* ─────────────────────────────────────────────────────────────
+   Design tokens — single source of truth for color/spacing.
+   No hardcoded hex in page markup; use these variables or the
+   component classes below (Tailwind handles layout utilities).
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --color-primary: #1e3a5f;        /* deep slate blue — trust/structure */
+  --color-primary-dark: #162c49;
+  --color-accent: #c2410c;         /* roofing terracotta — CTAs */
+  --color-accent-dark: #9a3412;
+  --color-ink: #1f2937;
+  --color-muted: #6b7280;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f4f5f7;
+  --color-success: #15803d;
+  --color-danger: #b91c1c;
+  --radius: 8px;
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, .08), 0 1px 2px rgba(15, 23, 42, .06);
+}
+
+[x-cloak] { display: none !important; }
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  padding: .625rem 1.25rem;
+  border-radius: var(--radius);
+  transition: background .15s ease;
+  cursor: pointer;
+  border: 0;
+  text-align: center;
+}
+.btn-primary:hover { background: var(--color-accent-dark); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+
+.btn-secondary {
+  display: inline-block;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  padding: .625rem 1.25rem;
+  border-radius: var(--radius);
+  transition: background .15s ease;
+  cursor: pointer;
+  border: 0;
+  text-align: center;
+}
+.btn-secondary:hover { background: var(--color-primary-dark); }
+
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--color-primary);
+  font-weight: 600;
+  padding: .55rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--color-primary);
+  cursor: pointer;
+  text-align: center;
+}
+.btn-outline:hover { background: var(--color-primary); color: #fff; }
+
+/* ── Cards & forms ── */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+}
+
+.field-label {
+  display: block;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: .3rem;
+}
+.field-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  padding: .55rem .75rem;
+  font-size: .95rem;
+  background: #fff;
+  color: var(--color-ink);
+}
+.field-input:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+  border-color: var(--color-primary);
+}
+.field-help { font-size: .78rem; color: var(--color-muted); margin-top: .25rem; }
+.field-error { font-size: .8rem; color: var(--color-danger); margin-top: .25rem; }
+
+/* ── Status badges (client pipeline + subscription) ── */
+.badge { display: inline-block; font-size: .72rem; font-weight: 600; padding: .15rem .55rem; border-radius: 999px; text-transform: capitalize; }
+.badge-new       { background: #dbeafe; color: #1d4ed8; }
+.badge-contacted { background: #fef3c7; color: #b45309; }
+.badge-quoted    { background: #ede9fe; color: #6d28d9; }
+.badge-won       { background: #dcfce7; color: #15803d; }
+.badge-lost      { background: #f3f4f6; color: #6b7280; }
+.badge-trial     { background: #fef3c7; color: #b45309; }
+.badge-active    { background: #dcfce7; color: #15803d; }
+.badge-past_due  { background: #fee2e2; color: #b91c1c; }
+.badge-suspended { background: #fee2e2; color: #b91c1c; }
+.badge-cancelled { background: #f3f4f6; color: #6b7280; }
+
+/* ── Estimator wizard ── */
+.wizard-step-dot {
+  width: 2rem; height: 2rem; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .8rem; font-weight: 700;
+  background: #e5e7eb; color: var(--color-muted);
+}
+.wizard-step-dot.is-active { background: var(--color-accent); color: #fff; }
+.wizard-step-dot.is-done   { background: var(--color-primary); color: #fff; }
+
+.option-tile {
+  border: 1.5px solid #d1d5db;
+  border-radius: var(--radius);
+  padding: .8rem .9rem;
+  cursor: pointer;
+  text-align: center;
+  font-size: .9rem;
+  font-weight: 500;
+  background: #fff;
+  transition: border-color .12s ease, background .12s ease;
+}
+.option-tile:hover { border-color: var(--color-primary); }
+.option-tile.is-selected {
+  border-color: var(--color-accent);
+  background: #fff7ed;
+  color: var(--color-accent-dark);
+}
+
+/* Teaser blur gate on step 4 */
+.teaser-blur { filter: blur(10px); user-select: none; pointer-events: none; }
+
+/*
+ * HONEYPOT — off-screen positioning, deliberately NOT display:none
+ * (some bots skip display:none fields). Class name is neutral on purpose.
+ */
+.hp-wrap {
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+}
+
+/* ── Direct-answer summary boxes (AEO, marketing pages) ── */
+.answer-box {
+  background: var(--color-surface-alt);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1rem 1.25rem;
+  font-size: .95rem;
+}
+
+/* ── Tables (dashboard lists) ── */
+.data-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+.data-table th {
+  text-align: left; font-weight: 600; color: var(--color-muted);
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .04em;
+  padding: .6rem .75rem; border-bottom: 1px solid #e5e7eb;
+}
+.data-table td { padding: .7rem .75rem; border-bottom: 1px solid #f1f5f9; }
+.data-table tr:hover td { background: #f8fafc; }

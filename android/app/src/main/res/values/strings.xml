@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- APP_NAME — the single source of truth for the product name.
+         RENAME BEFORE PLAY STORE SUBMISSION (see docs/SETUP.md). Every screen title,
+         notification, and about reference uses @string/app_name — never a literal. -->
+    <string name="app_name">TEMP_APP_NAME</string>
+
+    <!-- Notification channel for new-lead alerts -->
+    <string name="channel_leads_name">New leads</string>
+    <string name="channel_leads_description">Alerts when a new lead submits an estimate</string>
+</resources>

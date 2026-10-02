@@ -1,0 +1,15 @@
+# Secrets — the live/dev DB creds + Stripe/SMTP keys live here, never commit
+config/config.php
+
+# Runtime-generated, not source
+storage/logs/*
+uploads/*
+!storage/logs/.gitkeep
+!uploads/.gitkeep
+
+# Dependencies (composer install regenerates)
+vendor/
+
+# IDE
+.idea/
+.vscode/

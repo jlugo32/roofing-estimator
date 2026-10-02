@@ -1,0 +1,20 @@
+# Build outputs
+build/
+app/build/
+.gradle/
+.kotlin/
+
+# Local machine config (SDK path)
+local.properties
+
+# Signing secrets — NEVER commit these
+keystore.properties
+*.keystore
+*.jks
+
+# Optional Firebase config (contains project identifiers)
+google-services.json
+
+# IDE
+.idea/
+*.iml
